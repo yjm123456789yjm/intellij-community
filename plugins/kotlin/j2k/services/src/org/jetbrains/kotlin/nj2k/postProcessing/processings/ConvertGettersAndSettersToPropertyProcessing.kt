@@ -57,6 +57,7 @@ import org.jetbrains.kotlin.utils.addToStdlib.firstIsInstanceOrNull
 import org.jetbrains.kotlin.utils.addToStdlib.safeAs
 import org.jetbrains.kotlin.utils.mapToIndex
 import org.jetbrains.kotlin.idea.codeinsight.utils.isRedundantGetter
+import org.jetbrains.kotlin.idea.codeinsight.utils.isRedundantSetter
 
 class ConvertGettersAndSettersToPropertyProcessing : ElementsBasedPostProcessing() {
     override val options: PostProcessingOptions =
