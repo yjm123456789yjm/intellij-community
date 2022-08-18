@@ -1361,5 +1361,9 @@ private fun assembleWorkspace(): TWorkspace = workspace {
             val pattern = Patterns.forRegex("^(inspections\\.test)$")
             model("inspections", pattern = pattern)
         }
+
+        testClass<AbstractQuickFixTest> {
+            model("quickfix", pattern = Patterns.forRegex("^([\\w\\-_]+)\\.kt$"))
+        }
     }
 }

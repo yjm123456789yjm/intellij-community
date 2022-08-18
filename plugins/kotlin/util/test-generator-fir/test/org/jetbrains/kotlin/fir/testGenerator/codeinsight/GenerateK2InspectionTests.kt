@@ -1,6 +1,7 @@
 // Copyright 2000-2022 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license.
 package org.jetbrains.kotlin.fir.testGenerator.codeinsight
 
+import org.jetbrains.kotlin.idea.k2.codeInsight.intentions.shared.AbstractK2QuickFixTest
 import org.jetbrains.kotlin.idea.k2.codeInsight.intentions.shared.AbstractSharedK2InspectionTest
 import org.jetbrains.kotlin.idea.k2.codeInsight.intentions.shared.AbstractSharedK2LocalInspectionTest
 import org.jetbrains.kotlin.idea.k2.intentions.tests.AbstractK2InspectionTest
@@ -39,6 +40,10 @@ internal fun MutableTWorkspace.generateK2InspectionTests() {
         testClass<AbstractSharedK2InspectionTest> {
             val pattern = Patterns.forRegex("^(inspections\\.test)$")
             model("inspections", pattern = pattern)
+        }
+
+        testClass<AbstractK2QuickFixTest> {
+            model("quickfix", pattern = Patterns.forRegex("^([\\w\\-_]+)\\.kt$"))
         }
     }
 }
