@@ -76,3 +76,5 @@ fun removeProperty(ktProperty: KtProperty) {
         ktProperty.delete()
     }
 }
+
+val KtParameter.isSetterParameter: Boolean get() = (parent.parent as? KtPropertyAccessor)?.isSetter ?: false
